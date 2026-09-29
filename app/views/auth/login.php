@@ -15,16 +15,16 @@ declare(strict_types=1);
 use KPM\Core\Csrf;
 ?>
 <div class="kpm-auth-box">
-    <?= $this->view('partials/brand.php') ?>
+    <?php echo $this->view('partials/brand.php') ?>
     <div class="kpm-card">
         <h1>Sign in</h1>
         <p class="kpm-lead">Private notes, protected by two-factor authentication.</p>
-        <?= $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
+        <?php echo $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
         <form method="post" action="/login" autocomplete="on">
-            <?= Csrf::field() ?>
+            <?php echo Csrf::field() ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="username">Username</label>
-                <input class="kpm-input" id="username" name="username" type="text" value="<?= e($username ?? '') ?>"
+                <input class="kpm-input" id="username" name="username" type="text" value="<?php echo e($username ?? '') ?>"
                     autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="64" required autofocus>
             </div>
             <div class="kpm-form-group">

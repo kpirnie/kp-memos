@@ -16,17 +16,17 @@ declare(strict_types=1);
 use KPM\Core\Csrf;
 ?>
 <div class="kpm-auth-box">
-    <?= $this->view('partials/brand.php') ?>
+    <?php echo $this->view('partials/brand.php') ?>
     <div class="kpm-card">
         <span class="kpm-eyebrow">Required</span>
         <h1>Set up two-factor authentication</h1>
         <p class="kpm-lead">Scan this code with an authenticator app, then enter the 6 digit code it shows.</p>
-        <?= $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
-        <div class="kpm-qr"><?= $qr ?></div>
+        <?php echo $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
+        <div class="kpm-qr"><?php echo $qr ?></div>
         <p class="kpm-help">Can't scan it? Enter this key manually:</p>
-        <p class="kpm-secret kpm-mono"><?= e($secret) ?></p>
+        <p class="kpm-secret kpm-mono"><?php echo e($secret) ?></p>
         <form method="post" action="/login/enroll" autocomplete="off">
-            <?= Csrf::field() ?>
+            <?php echo Csrf::field() ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="code">Code</label>
                 <input class="kpm-input kpm-input-code" id="code" name="code" type="text" inputmode="numeric"

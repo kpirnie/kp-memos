@@ -200,7 +200,7 @@ if (! class_exists('\KPM\Core\Taxonomy')) {
             }
             return array_values(array_unique(array_filter(
                 array_map('intval', explode(',', $csv)),
-                static fn (int $id): bool => $id > 0
+                static fn(int $id): bool => $id > 0
             )));
         }
 

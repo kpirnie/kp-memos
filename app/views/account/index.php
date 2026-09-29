@@ -20,7 +20,7 @@ use KPM\Core\Format;
 <div class="kpm-page-head">
     <div>
         <h1>Account</h1>
-        <p>Signed in as <span class="kpm-mono"><?= e($user->username) ?></span></p>
+        <p>Signed in as <span class="kpm-mono"><?php echo e($user->username) ?></span></p>
     </div>
 </div>
 
@@ -28,16 +28,16 @@ use KPM\Core\Format;
     <section class="kpm-card">
         <h2 class="kpm-card-title">Profile</h2>
         <form method="post" action="/account/profile">
-            <?= Csrf::field() ?>
+            <?php echo Csrf::field() ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="display_name">Display name</label>
                 <input class="kpm-input" id="display_name" name="display_name" maxlength="128"
-                    value="<?= e($user->display_name) ?>">
+                    value="<?php echo e($user->display_name) ?>">
             </div>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="email">Email</label>
                 <input class="kpm-input" id="email" name="email" type="email" maxlength="255"
-                    value="<?= e($user->email ?? '') ?>">
+                    value="<?php echo e($user->email ?? '') ?>">
             </div>
             <button class="kpm-btn kpm-btn-primary" type="submit">Save profile</button>
         </form>
@@ -46,9 +46,9 @@ use KPM\Core\Format;
     <section class="kpm-card">
         <h2 class="kpm-card-title">Security</h2>
         <p class="kpm-muted kpm-small">Two-factor authentication is on.
-            You have <strong><?= e($remaining) ?></strong> unused recovery codes.</p>
-        <p class="kpm-muted kpm-small">Last sign in: <?= e(Format::datetime($user->last_login_at)) ?>
-            from <span class="kpm-mono"><?= e($user->last_login_ip ?? '-') ?></span></p>
+            You have <strong><?php echo e($remaining) ?></strong> unused recovery codes.</p>
+        <p class="kpm-muted kpm-small">Last sign in: <?php echo e(Format::datetime($user->last_login_at)) ?>
+            from <span class="kpm-mono"><?php echo e($user->last_login_ip ?? '-') ?></span></p>
         <div class="kpm-row kpm-mt">
             <a class="kpm-btn kpm-btn-secondary" href="/account/password">Change password</a>
         </div>
@@ -56,8 +56,8 @@ use KPM\Core\Format;
         <details class="kpm-details">
             <summary>Regenerate recovery codes</summary>
             <form method="post" action="/account/recovery-codes" autocomplete="off">
-                <?= Csrf::field() ?>
-                <?= $this->view('account/reauth.php') ?>
+                <?php echo Csrf::field() ?>
+                <?php echo $this->view('account/reauth.php') ?>
                 <button class="kpm-btn kpm-btn-secondary" type="submit">Issue new codes</button>
             </form>
         </details>
@@ -68,8 +68,8 @@ use KPM\Core\Format;
                 You will set up a new authenticator at your next sign in.</p>
             <form method="post" action="/account/totp-reset" autocomplete="off"
                 data-confirm="Remove two-factor and sign out now?">
-                <?= Csrf::field() ?>
-                <?= $this->view('account/reauth.php') ?>
+                <?php echo Csrf::field() ?>
+                <?php echo $this->view('account/reauth.php') ?>
                 <button class="kpm-btn kpm-btn-danger" type="submit">Reset two-factor</button>
             </form>
         </details>
@@ -80,16 +80,23 @@ use KPM\Core\Format;
     <h2 class="kpm-card-title">Recent activity</h2>
     <div class="kpm-table-wrap">
         <table class="kpm-table">
-            <thead><tr><th>When</th><th>Event</th><th>IP</th><th>Device</th></tr></thead>
-            <tbody>
-<?php foreach ($activity as $event) : ?>
+            <thead>
                 <tr>
-                    <td class="kpm-nowrap"><?= e(Format::datetime($event->created_at)) ?></td>
-                    <td class="kpm-mono"><?= e($event->event) ?></td>
-                    <td class="kpm-mono"><?= e($event->ip) ?></td>
-                    <td class="kpm-muted kpm-truncate" title="<?= e($event->user_agent) ?>"><?= e($event->user_agent) ?></td>
+                    <th>When</th>
+                    <th>Event</th>
+                    <th>IP</th>
+                    <th>Device</th>
                 </tr>
-<?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($activity as $event) : ?>
+                    <tr>
+                        <td class="kpm-nowrap"><?php echo e(Format::datetime($event->created_at)) ?></td>
+                        <td class="kpm-mono"><?php echo e($event->event) ?></td>
+                        <td class="kpm-mono"><?php echo e($event->ip) ?></td>
+                        <td class="kpm-muted kpm-truncate" title="<?php echo e($event->user_agent) ?>"><?php echo e($event->user_agent) ?></td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

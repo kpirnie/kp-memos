@@ -127,7 +127,7 @@ if (! class_exists('\KPM\Core\Csrf')) {
             if (! is_string($issued) || $issued === '') {
                 return self::reject(isset($_COOKIE[session_name()])
                     ? 'the session cookie arrived but its session holds no token; check that session.save_path ('
-                        . session_save_path() . ') exists and is writable by the php-fpm user'
+                    . session_save_path() . ') exists and is writable by the php-fpm user'
                     : 'no session cookie arrived; the site must be browsed over https for the __Host- cookie');
             }
 

@@ -166,7 +166,11 @@ if (! class_exists('\KPM\Controllers\AdminController')) {
 
             // save
             $status = (int) Db::value('admin_user_update', [
-                $id, trim(mb_substr(Request::post('display_name'), 0, 128)), $email, $role, $active,
+                $id,
+                trim(mb_substr(Request::post('display_name'), 0, 128)),
+                $email,
+                $role,
+                $active,
             ]);
             match (true) {
                 $status === 0 => Response::abort(404),

@@ -16,14 +16,14 @@ declare(strict_types=1);
 use KPM\Core\Csrf;
 ?>
 <div class="kpm-auth-box">
-    <?= $this->view('partials/brand.php') ?>
+    <?php echo $this->view('partials/brand.php') ?>
     <div class="kpm-card">
         <span class="kpm-eyebrow">Protected</span>
         <h1>This note is password protected</h1>
         <p class="kpm-lead">Enter the password you were given to view it.</p>
-        <?= $this->view('partials/flash.php', ['flashes' => [], 'error' => $error ?? null]) ?>
-        <form method="post" action="/s/<?= e($token) ?>" autocomplete="off">
-            <?= Csrf::field() ?>
+        <?php echo $this->view('partials/flash.php', ['flashes' => [], 'error' => $error ?? null]) ?>
+        <form method="post" action="/s/<?php echo e($token) ?>" autocomplete="off">
+            <?php echo Csrf::field() ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="password">Password</label>
                 <input class="kpm-input" id="password" name="password" type="password" maxlength="1024" required autofocus>

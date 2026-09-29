@@ -17,8 +17,8 @@ declare(strict_types=1);
 $types = ['success' => 'success', 'error' => 'error', 'info' => 'info', 'warning' => 'warning'];
 ?>
 <?php foreach ($flashes ?? [] as $flash) : ?>
-<div class="kpm-alert kpm-alert-<?= e($types[$flash['type']] ?? 'info') ?>" role="status"><?= e($flash['message']) ?></div>
+    <div class="kpm-alert kpm-alert-<?php echo e($types[$flash['type']] ?? 'info') ?>" role="status"><?php echo e($flash['message']) ?></div>
 <?php endforeach; ?>
 <?php if (! empty($error)) : ?>
-<div class="kpm-alert kpm-alert-error" role="alert"><?= e($error) ?></div>
+    <div class="kpm-alert kpm-alert-error" role="alert"><?php echo e($error) ?></div>
 <?php endif; ?>

@@ -197,7 +197,7 @@ if (! class_exists('\KPM\Core\Storage')) {
         {
             $upload = self::iniBytes((string) ini_get('upload_max_filesize'));
             $post = self::iniBytes((string) ini_get('post_max_size'));
-            $limits = array_filter([$upload, $post], static fn (int $v): bool => $v > 0);
+            $limits = array_filter([$upload, $post], static fn(int $v): bool => $v > 0);
             return $limits !== [] ? min($limits) : 0;
         }
 

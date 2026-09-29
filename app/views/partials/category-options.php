@@ -21,7 +21,7 @@ $selected = $selected ?? [];
 $exclude = $exclude ?? [];
 ?>
 <?php foreach ($categories as $node) : ?>
-<?php if (! in_array((int) $node->id, $exclude, true)) : ?>
-<option value="<?= e($node->id) ?>"<?= in_array((int) $node->id, $selected, true) ? ' selected' : '' ?>><?= str_repeat('&nbsp;&nbsp;&nbsp;', (int) $node->depth) ?><?= e($node->name) ?></option>
-<?php endif; ?>
+    <?php if (! in_array((int) $node->id, $exclude, true)) : ?>
+        <option value="<?php echo e($node->id) ?>" <?php echo in_array((int) $node->id, $selected, true) ? ' selected' : '' ?>><?php echo str_repeat('&nbsp;&nbsp;&nbsp;', (int) $node->depth) ?><?php echo e($node->name) ?></option>
+    <?php endif; ?>
 <?php endforeach; ?>

@@ -85,7 +85,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                 $total,
                 self::PER_PAGE,
                 $filters->page,
-                static fn (int $page): string => '/notes?'
+                static fn(int $page): string => '/notes?'
                     . NoteQuery::queryString($filters, ['page' => $page > 1 ? $page : null])
             );
 
@@ -149,7 +149,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
         public function pinOrder(): void
         {
             $ids = Request::json()['ids'] ?? [];
-            $ids = is_array($ids) ? array_filter(array_map('intval', $ids), static fn (int $i): bool => $i > 0) : [];
+            $ids = is_array($ids) ? array_filter(array_map('intval', $ids), static fn(int $i): bool => $i > 0) : [];
             $ids = array_slice(array_values(array_unique($ids)), 0, self::MAX_PINNED);
             $count = (int) Db::value('notes_pin_order', [(int) $this->user()->id, implode(',', $ids)]);
             Response::json(['success' => true, 'updated' => $count]);
@@ -190,11 +190,11 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                 'title' => $note->title,
                 'note' => $note,
                 'noteCategories' => array_values(array_filter(array_map(
-                    static fn (int $cid): ?object => $categories[$cid] ?? null,
+                    static fn(int $cid): ?object => $categories[$cid] ?? null,
                     Taxonomy::ids($note->category_ids)
                 ))),
                 'noteTags' => array_values(array_filter(array_map(
-                    static fn (int $tid): ?object => $tags[$tid] ?? null,
+                    static fn(int $tid): ?object => $tags[$tid] ?? null,
                     Taxonomy::ids($note->tag_ids)
                 ))),
                 'attachments' => Db::rows('attachments_list', [$uid, (int) $note->id]),
@@ -331,10 +331,10 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                 'categories' => Taxonomy::categories($uid),
                 'selectedCategories' => $note !== null ? Taxonomy::ids($note->category_ids) : [],
                 'noteTags' => $note !== null ? array_values(array_filter(array_map(
-                    static fn (int $tid): ?string => isset($tags[$tid]) ? (string) $tags[$tid]->name : null,
+                    static fn(int $tid): ?string => isset($tags[$tid]) ? (string) $tags[$tid]->name : null,
                     Taxonomy::ids($note->tag_ids)
                 ))) : [],
-                'allTags' => array_map(static fn (object $t): string => (string) $t->name, Taxonomy::tags($uid)),
+                'allTags' => array_map(static fn(object $t): string => (string) $t->name, Taxonomy::tags($uid)),
                 'attachments' => $note !== null ? Db::rows('attachments_list', [$uid, (int) $note->id]) : [],
                 'maxUpload' => Storage::maxUploadBytes(),
                 'maxFiles' => Storage::maxFileCount(),
@@ -387,7 +387,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
             // categories: the procedure ignores ids the user doesn't own
             $categories = array_filter(
                 array_map('intval', Request::postArray('categories')),
-                static fn (int $c): bool => $c > 0
+                static fn(int $c): bool => $c > 0
             );
             Db::value('note_categories_set', [$uid, $id, implode(',', array_unique($categories))]);
 
@@ -448,7 +448,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                 return [[], []];
             }
             $count = is_array($files['name']) ? count($files['name']) : 1;
-            $pick = static fn (string $key, int $i): mixed => is_array($files[$key])
+            $pick = static fn(string $key, int $i): mixed => is_array($files[$key])
                 ? ($files[$key][$i] ?? null)
                 : $files[$key];
 
@@ -477,7 +477,13 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                     continue;
                 }
                 $attachmentId = (int) Db::value('attachment_add', [
-                    $uid, $noteId, $name, $stored['stored'], $stored['mime'], $stored['size'], $stored['sha256'],
+                    $uid,
+                    $noteId,
+                    $name,
+                    $stored['stored'],
+                    $stored['mime'],
+                    $stored['size'],
+                    $stored['sha256'],
                 ]);
                 if ($attachmentId < 1) {
                     Storage::delete($stored['stored']);

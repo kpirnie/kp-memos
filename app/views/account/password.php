@@ -18,17 +18,17 @@ use KPM\Core\Csrf;
     <div class="kpm-page-head">
         <div>
             <h1>Change password</h1>
-<?php if ((int) $user->must_change_password === 1) : ?>
-            <p>Your account requires a new password before you continue.</p>
-<?php else : ?>
-            <p>Changing your password signs out every other session.</p>
-<?php endif; ?>
+            <?php if ((int) $user->must_change_password === 1) : ?>
+                <p>Your account requires a new password before you continue.</p>
+            <?php else : ?>
+                <p>Changing your password signs out every other session.</p>
+            <?php endif; ?>
         </div>
     </div>
     <div class="kpm-card">
         <form method="post" action="/account/password" autocomplete="off">
-            <?= Csrf::field() ?>
-            <?= $this->view('account/reauth.php') ?>
+            <?php echo Csrf::field() ?>
+            <?php echo $this->view('account/reauth.php') ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="new_password">New password</label>
                 <input class="kpm-input" id="new_password" name="new_password" type="password"

@@ -24,9 +24,9 @@ declare(strict_types=1);
     </div>
     <div class="kpm-card">
         <ol class="kpm-codes kpm-mono" id="kpm-codes">
-<?php foreach ($codes as $code) : ?>
-            <li><?= e($code) ?></li>
-<?php endforeach; ?>
+            <?php foreach ($codes as $code) : ?>
+                <li><?php echo e($code) ?></li>
+            <?php endforeach; ?>
         </ol>
         <div class="kpm-row">
             <button class="kpm-btn kpm-btn-secondary" type="button" data-copy="#kpm-codes">Copy</button>

@@ -13,14 +13,14 @@ declare(strict_types=1);
 use KPM\Core\Csrf;
 ?>
 <div class="kpm-auth-box">
-    <?= $this->view('partials/brand.php') ?>
+    <?php echo $this->view('partials/brand.php') ?>
     <div class="kpm-card">
         <span class="kpm-eyebrow">Step 2 of 2</span>
         <h1>Authentication code</h1>
         <p class="kpm-lead">Enter the 6 digit code from your authenticator app, or one of your recovery codes.</p>
-        <?= $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
+        <?php echo $this->view('partials/flash.php', ['flashes' => $flashes ?? [], 'error' => $error ?? null]) ?>
         <form method="post" action="/login/verify" autocomplete="off">
-            <?= Csrf::field() ?>
+            <?php echo Csrf::field() ?>
             <div class="kpm-form-group">
                 <label class="kpm-label" for="code">Code</label>
                 <input class="kpm-input kpm-input-code" id="code" name="code" type="text" inputmode="text"

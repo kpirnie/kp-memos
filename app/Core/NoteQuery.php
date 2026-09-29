@@ -67,7 +67,7 @@ if (! class_exists('\KPM\Core\NoteQuery')) {
             $categories = Taxonomy::categoryMap($uid);
             $tagMap = Taxonomy::tagMap($uid);
             $category = isset($categories[$category]) ? $category : 0;
-            $tags = array_filter($tags, static fn (int $t): bool => isset($tagMap[$t]));
+            $tags = array_filter($tags, static fn(int $t): bool => isset($tagMap[$t]));
             $tags = array_slice(array_values($tags), 0, 20);
 
             // enums and dates
@@ -245,7 +245,7 @@ if (! class_exists('\KPM\Core\NoteQuery')) {
                 'sort' => $f->sort,
                 'page' => $f->page > 1 ? $f->page : null,
             ], $overrides);
-            $params = array_filter($params, static fn (mixed $v): bool => $v !== null && $v !== '');
+            $params = array_filter($params, static fn(mixed $v): bool => $v !== null && $v !== '');
             return http_build_query($params, '', '&', PHP_QUERY_RFC3986);
         }
     }
