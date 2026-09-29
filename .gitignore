@@ -1,0 +1,18 @@
+# composer
+/vendor/
+
+# local application configuration (holds credentials and the app key)
+/app/config.php
+
+# runtime storage (uploads, logs)
+/storage/*
+!/storage/.gitkeep
+
+# router runtime data
+/tmp/
+
+# editor / os cruft
+.idea/
+.vscode/
+.DS_Store
+*.swp

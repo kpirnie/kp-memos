@@ -1,0 +1,655 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c22f926b511bfffedc65c09e1771f335",
+    "packages": [
+        {
+            "name": "bacon/bacon-qr-code",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bacon/BaconQrCode.git",
+                "reference": "4da2233e72eeecd9be3b62e0dc2cc9ed8e2e31c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/4da2233e72eeecd9be3b62e0dc2cc9ed8e2e31c2",
+                "reference": "4da2233e72eeecd9be3b62e0dc2cc9ed8e2e31c2",
+                "shasum": ""
+            },
+            "require": {
+                "dasprid/enum": "^1.0.3",
+                "ext-iconv": "*",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phly/keep-a-changelog": "^2.12",
+                "phpunit/phpunit": "^10.5.11 || ^11.0.4",
+                "spatie/phpunit-snapshot-assertions": "^5.1.5",
+                "spatie/pixelmatch-php": "^1.2.0",
+                "squizlabs/php_codesniffer": "^3.9"
+            },
+            "suggest": {
+                "ext-imagick": "to generate QR code images"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BaconQrCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Scholzen 'DASPRiD'",
+                    "email": "mail@dasprids.de",
+                    "homepage": "https://dasprids.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "BaconQrCode is a QR code generator for PHP.",
+            "homepage": "https://github.com/Bacon/BaconQrCode",
+            "support": {
+                "issues": "https://github.com/Bacon/BaconQrCode/issues",
+                "source": "https://github.com/Bacon/BaconQrCode/tree/v3.1.1"
+            },
+            "time": "2026-04-05T21:06:35+00:00"
+        },
+        {
+            "name": "dasprid/enum",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DASPRiD/Enum.git",
+                "reference": "b5874fa9ed0043116c72162ec7f4fb50e02e7cce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DASPRiD/Enum/zipball/b5874fa9ed0043116c72162ec7f4fb50e02e7cce",
+                "reference": "b5874fa9ed0043116c72162ec7f4fb50e02e7cce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1 <9.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7 || ^8 || ^9 || ^10 || ^11",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DASPRiD\\Enum\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Scholzen 'DASPRiD'",
+                    "email": "mail@dasprids.de",
+                    "homepage": "https://dasprids.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP 7.1 enum implementation",
+            "keywords": [
+                "enum",
+                "map"
+            ],
+            "support": {
+                "issues": "https://github.com/DASPRiD/Enum/issues",
+                "source": "https://github.com/DASPRiD/Enum/tree/1.0.7"
+            },
+            "time": "2025-09-16T12:23:56+00:00"
+        },
+        {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.19.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "5e0539132d934f936fbae2c88b55d58f9438623f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/5e0539132d934f936fbae2c88b55d58f9438623f",
+                "reference": "5e0539132d934f936fbae2c88b55d58f9438623f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.6.0 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
+            },
+            "require-dev": {
+                "cerdic/css-tidy": "^1.7 || ^2.0",
+                "simpletest/simpletest": "dev-master"
+            },
+            "suggest": {
+                "cerdic/css-tidy": "If you want to use the filter 'Filter.ExtractStyleBlocks'.",
+                "ext-bcmath": "Used for unit conversion and imagecrash protection",
+                "ext-iconv": "Converts text to and from non-UTF-8 encodings",
+                "ext-tidy": "Used for pretty-printing HTML"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ],
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "exclude-from-classmap": [
+                    "/library/HTMLPurifier/Language/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "support": {
+                "issues": "https://github.com/ezyang/htmlpurifier/issues",
+                "source": "https://github.com/ezyang/htmlpurifier/tree/v4.19.1"
+            },
+            "time": "2026-09-15T15:42:51+00:00"
+        },
+        {
+            "name": "kevinpirnie/kpt-cache",
+            "version": "v1.0.83",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kpirnie/kp-cache.git",
+                "reference": "4882c41f5c36c64d02b9af4244adfa1f439a2372"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kpirnie/kp-cache/zipball/4882c41f5c36c64d02b9af4244adfa1f439a2372",
+                "reference": "4882c41f5c36c64d02b9af4244adfa1f439a2372",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "kevinpirnie/kpt-logger": "^1.0",
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "suggest": {
+                "ext-apcu": "For APCu cache support",
+                "ext-memcached": "For Memcached cache support",
+                "ext-redis": "For Redis cache support",
+                "ext-yac": "For YAC cache support"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KPT\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Pirnie",
+                    "email": "me@kpirnie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Modern Multi-Tier PHP Caching System with automatic tier discovery, connection pooling, and failover support",
+            "homepage": "https://github.com/kpirnie/kp-cache",
+            "keywords": [
+                "Opcache",
+                "apcu",
+                "cache",
+                "caching",
+                "memcached",
+                "multi-tier",
+                "performance",
+                "php",
+                "redis"
+            ],
+            "support": {
+                "issues": "https://github.com/kpirnie/kp-cache/issues",
+                "source": "https://github.com/kpirnie/kp-cache"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/kevinpirnie",
+                    "type": "ko-fi"
+                },
+                {
+                    "url": "https://www.paypal.biz/kevinpirnie",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2026-02-06T21:06:19+00:00"
+        },
+        {
+            "name": "kevinpirnie/kpt-database",
+            "version": "v1.1.98",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kpirnie/kp-database.git",
+                "reference": "aee74b72fb9757bfa6fe3a36a6f3f56a027bf5b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kpirnie/kp-database/zipball/aee74b72fb9757bfa6fe3a36a6f3f56a027bf5b1",
+                "reference": "aee74b72fb9757bfa6fe3a36a6f3f56a027bf5b1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "kevinpirnie/kpt-logger": "^1.0",
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.0",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KPT\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Pirnie",
+                    "email": "me@kpirnie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A modern, fluent PHP database wrapper built on top of PDO, providing an elegant and secure way to interact with MySQL databases",
+            "homepage": "https://github.com/kpirnie/kp-database",
+            "keywords": [
+                "database",
+                "fluent",
+                "mysql",
+                "orm",
+                "pdo",
+                "query-builder",
+                "sql"
+            ],
+            "support": {
+                "issues": "https://github.com/kpirnie/kp-database/issues",
+                "source": "https://github.com/kpirnie/kp-database"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/kevinpirnie",
+                    "type": "ko-fi"
+                },
+                {
+                    "url": "https://www.paypal.biz/kevinpirnie",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2026-01-25T14:59:30+00:00"
+        },
+        {
+            "name": "kevinpirnie/kpt-logger",
+            "version": "v1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kpirnie/kp-logger.git",
+                "reference": "6dc32295c85cf7b070db1825c502ba877594e6bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kpirnie/kp-logger/zipball/6dc32295c85cf7b070db1825c502ba877594e6bb",
+                "reference": "6dc32295c85cf7b070db1825c502ba877594e6bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KPT\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Pirnie",
+                    "email": "me@kpirnie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple Universal Application Logger for PHP with configurable output destinations and four standard log levels",
+            "homepage": "https://github.com/kpirnie/kpt-logger",
+            "keywords": [
+                "debug",
+                "error",
+                "file-logging",
+                "info",
+                "logger",
+                "logging",
+                "stack-trace",
+                "system-log",
+                "warning"
+            ],
+            "support": {
+                "issues": "https://github.com/kpirnie/kpt-logger/issues",
+                "source": "https://github.com/kpirnie/kpt-logger"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/kevinpirnie",
+                    "type": "ko-fi"
+                },
+                {
+                    "url": "https://www.paypal.biz/kevinpirnie",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2026-02-06T21:33:52+00:00"
+        },
+        {
+            "name": "kevinpirnie/kpt-router",
+            "version": "v1.0.33",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kpirnie/kp-router.git",
+                "reference": "47366559b17a28f29cf5b5e08533d1212a01c0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kpirnie/kp-router/zipball/47366559b17a28f29cf5b5e08533d1212a01c0e6",
+                "reference": "47366559b17a28f29cf5b5e08533d1212a01c0e6",
+                "shasum": ""
+            },
+            "require": {
+                "kevinpirnie/kpt-cache": "^1.0",
+                "kevinpirnie/kpt-logger": "^1.0",
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "suggest": {
+                "ext-redis": "Required for Redis-based rate limiting and caching",
+                "predis/predis": "Alternative Redis client if ext-redis is not available"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KPT\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Pirnie",
+                    "email": "me@kpirnie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A comprehensive PHP routing library with middleware support, rate limiting, view rendering, and controller resolution capabilities",
+            "homepage": "https://github.com/kpirnie/kpt-router",
+            "keywords": [
+                "api",
+                "caching",
+                "controllers",
+                "framework",
+                "http",
+                "middleware",
+                "mvc",
+                "php",
+                "rate-limiting",
+                "rest",
+                "router",
+                "routing",
+                "views",
+                "web"
+            ],
+            "support": {
+                "docs": "https://github.com/kpirnie/kpt-router/blob/main/README.md",
+                "issues": "https://github.com/kpirnie/kpt-router/issues",
+                "source": "https://github.com/kpirnie/kpt-router"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/kevinpirnie",
+                    "type": "ko-fi"
+                },
+                {
+                    "url": "https://www.paypal.biz/kevinpirnie",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2026-02-06T21:30:10+00:00"
+        },
+        {
+            "name": "kevinpirnie/kpt-utils",
+            "version": "v1.2.02",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kpirnie/kp-php-utils.git",
+                "reference": "24fa5fc2d9774f87eca7268408534c8ce5307ffe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kpirnie/kp-php-utils/zipball/24fa5fc2d9774f87eca7268408534c8ce5307ffe",
+                "reference": "24fa5fc2d9774f87eca7268408534c8ce5307ffe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-intl": "*",
+                "ext-openssl": "*",
+                "ext-sodium": "*",
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KPT\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Pirnie",
+                    "email": "iam@kevinpirnie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A modern PHP 8.2+ utility library.",
+            "homepage": "https://github.com/kpirnie/kp-php-utils",
+            "keywords": [
+                "array",
+                "cli",
+                "collection",
+                "crypto",
+                "curl",
+                "datetime",
+                "encryption",
+                "env",
+                "http",
+                "input",
+                "paginator",
+                "php",
+                "pipeline",
+                "retry",
+                "sanitize",
+                "security",
+                "session",
+                "string",
+                "token",
+                "utilities",
+                "uuid",
+                "validate"
+            ],
+            "support": {
+                "docs": "https://github.com/kpirnie/kp-php-utils/blob/main/readme.md",
+                "issues": "https://github.com/kpirnie/kp-php-utils/issues",
+                "source": "https://github.com/kpirnie/kp-php-utils"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/kevinpirnie",
+                    "type": "ko-fi"
+                },
+                {
+                    "url": "https://www.paypal.biz/kevinpirnie",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2026-06-12T11:21:33+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.13.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
+                "reference": "4c378e1a528ea066890fc2397cbdd2f94eb2fc91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/4c378e1a528ea066890fc2397cbdd2f94eb2fc91",
+                "reference": "4c378e1a528ea066890fc2397cbdd2f94eb2fc91",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
+            },
+            "bin": [
+                "bin/phpcbf",
+                "bin/phpcs"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "Former lead"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "role": "Current lead"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer/graphs/contributors"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
+            "keywords": [
+                "phpcs",
+                "standards",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPCSStandards/PHP_CodeSniffer/issues",
+                "security": "https://github.com/PHPCSStandards/PHP_CodeSniffer/security/policy",
+                "source": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
+                "wiki": "https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCSStandards",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/phpcsstandards",
+                    "type": "thanks_dev"
+                }
+            ],
+            "time": "2026-08-06T00:17:32+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.5",
+        "ext-curl": "*",
+        "ext-fileinfo": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-redis": "*",
+        "ext-sodium": "*"
+    },
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.5.0"
+    },
+    "plugin-api-version": "2.6.0"
+}

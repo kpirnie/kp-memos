@@ -1,0 +1,64 @@
+{
+    "name": "kevinpirnie/kp-memos",
+    "description": "Secure, self-hosted notes application with TOTP authentication, nested categories, tags, attachments, and shareable public links",
+    "type": "project",
+    "keywords": [
+        "php",
+        "notes",
+        "memos",
+        "totp",
+        "mariadb"
+    ],
+    "homepage": "https://github.com/kpirnie/kp-memos",
+    "authors": [
+        {
+            "name": "Kevin Pirnie",
+            "email": "me@kpirnie.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.5",
+        "ext-curl": "*",
+        "ext-fileinfo": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-redis": "*",
+        "ext-sodium": "*",
+        "bacon/bacon-qr-code": "^3.0",
+        "ezyang/htmlpurifier": "^4.18",
+        "kevinpirnie/kpt-database": "^1.1",
+        "kevinpirnie/kpt-router": "^1.0",
+        "kevinpirnie/kpt-utils": "^1.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "KPM\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "scripts": {
+        "cs-check": "phpcs --standard=PSR12 --extensions=php --ignore=app/views/* app/ bin/ index.php",
+        "cs-fix": "phpcbf --standard=PSR12 --extensions=php --ignore=app/views/* app/ bin/ index.php"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "platform": {
+            "php": "8.5.0"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/kpirnie/kp-memos/issues",
+        "source": "https://github.com/kpirnie/kp-memos"
+    }
+}
