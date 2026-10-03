@@ -387,8 +387,13 @@ body .jodit_theme_dark {
 .kpm-content code { background: var(--kpm-bg-card-alt); border: 1px solid var(--kpm-border-bright); border-radius: 4px; padding: 2px 6px; font-family: var(--kpm-font-mono); font-size: .85em; color: var(--kpm-cyan); }
 .kpm-content pre { background: #020a1a; border: 1px solid var(--kpm-border-bright); border-radius: var(--kpm-radius); padding: 18px; overflow-x: auto; font-family: var(--kpm-font-mono); font-size: .86rem; white-space: pre; }
 .kpm-content pre code { background: none; border: 0; padding: 0; color: var(--kpm-text); }
+.kpm-card.kpm-content { overflow: clip; }
 .kpm-pre-wrap { position: relative; }
-.kpm-pre-wrap .kpm-pre-copy { position: absolute; top: 8px; right: 8px; padding: 4px 10px; background: #020a1a; }
+.kpm-pre-tools { position: sticky; top: 115px; z-index: 1; height: 42px; margin-bottom: -42px; display: flex; justify-content: flex-end; align-items: flex-start; padding: 8px 8px 0 0; pointer-events: none; }
+.kpm-pre-copy { pointer-events: auto; background: #020a1a; border-color: var(--kpm-border-bright); opacity: 0; }
+.kpm-pre-wrap:hover .kpm-pre-copy, .kpm-pre-copy:focus-visible { opacity: 1; }
+@media (hover: none) { .kpm-pre-copy { opacity: 1; } }
+@media (max-width: 600px) { .kpm-pre-tools { top: 90px; } }
 .kpm-content table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--kpm-border-bright); border-radius: var(--kpm-radius); overflow: hidden; font-size: .92rem; }
 .kpm-content th, .kpm-content td { padding: 10px 14px; border-bottom: 1px solid var(--kpm-border); border-right: 1px solid var(--kpm-border); text-align: left; }
 .kpm-content tr > :last-child { border-right: 0; }
