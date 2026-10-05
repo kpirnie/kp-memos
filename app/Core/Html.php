@@ -5,8 +5,8 @@
  *
  * Every note body passes through HTMLPurifier before it is stored. The
  * allowlist keeps the formatting the editor produces (inline css included,
- * property by property) and drops anything that can script, frame, or
- * phone home beyond plain images and links.
+ * property by property) and drops anything that can script or phone home
+ * beyond plain images, links, media, and youtube / vimeo embeds.
  *
  * @since 8.5
  * @author Kevin Pirnie <me@kpirnie.com>
@@ -69,20 +69,20 @@ if (! class_exists('\KPM\Core\Html')) {
             $config->set('Core.Encoding', 'UTF-8');
             $config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
 
-            // the elements and attributes the editor produces; nothing that scripts, embeds, or submits,
-            // and no class attributes, so stored html can't borrow the app's own styling
+            // the elements and attributes the editor produces; nothing that scripts or submits, and
+            // only the editor's own classes, so stored html can't borrow the app's styling
             $config->set('HTML.Allowed', implode(',', [
-                'p[style]',
-                'div[style]',
+                'p[style|dir]',
+                'div[style|dir|class]',
                 'span[style]',
                 'br',
                 'hr',
-                'h1[style]',
-                'h2[style]',
-                'h3[style]',
-                'h4[style]',
-                'h5[style]',
-                'h6[style]',
+                'h1[style|dir]',
+                'h2[style|dir]',
+                'h3[style|dir]',
+                'h4[style|dir]',
+                'h5[style|dir]',
+                'h6[style|dir]',
                 'strong',
                 'b',
                 'em',
@@ -95,21 +95,21 @@ if (! class_exists('\KPM\Core\Html')) {
                 'sub',
                 'sup',
                 'small',
-                'blockquote[style]',
-                'pre[style]',
+                'blockquote[style|dir]',
+                'pre[style|dir|class]',
                 'code',
                 'kbd',
                 'samp',
                 'var',
-                'ul[style]',
-                'ol[style|start]',
-                'li[style]',
+                'ul[style|dir]',
+                'ol[style|dir|start]',
+                'li[style|dir]',
                 'dl',
                 'dt',
                 'dd',
                 'a[href|title|target|rel]',
                 'img[src|alt|title|width|height|style]',
-                'table[style|border|cellpadding|cellspacing|width]',
+                'table[style|dir|border|cellpadding|cellspacing|width]',
                 'caption',
                 'colgroup',
                 'col[span|width]',
@@ -117,9 +117,39 @@ if (! class_exists('\KPM\Core\Html')) {
                 'tbody',
                 'tfoot',
                 'tr[style]',
-                'th[style|colspan|rowspan|scope|width]',
-                'td[style|colspan|rowspan|width]',
+                'th[style|dir|colspan|rowspan|scope|width]',
+                'td[style|dir|colspan|rowspan|width]',
+                'details[class|open]',
+                'summary[class]',
+                'iframe[src|width|height|allowfullscreen]',
+                'video[src|width|height|poster|controls]',
+                'audio[src|controls]',
+                'source[src|type]',
             ]));
+
+            // accordion and code sample classes only
+            $config->set('Attr.AllowedClasses', [
+                'mce-accordion',
+                'mce-accordion-summary',
+                'mce-accordion-body',
+                'language-markup',
+                'language-javascript',
+                'language-css',
+                'language-php',
+                'language-ruby',
+                'language-python',
+                'language-java',
+                'language-c',
+                'language-csharp',
+                'language-cpp',
+            ]);
+
+            // embeds from youtube and vimeo only
+            $config->set('HTML.SafeIframe', true);
+            $config->set('URI.SafeIframeRegexp', '%^https://(www\.youtube(-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%');
+
+            // page breaks
+            $config->set('HTML.AllowedComments', ['pagebreak']);
 
             // presentational css only, validated property by property
             $config->set('CSS.AllowedProperties', [
@@ -181,6 +211,31 @@ if (! class_exists('\KPM\Core\Html')) {
             $config->set('AutoFormat.RemoveEmpty', false);
             $config->set('Output.Newline', "\n");
 
+            // html5 elements purifier doesn't know; bump the rev whenever these change so the cache rebuilds
+            $config->set('HTML.DefinitionID', 'kpm-notes');
+            $config->set('HTML.DefinitionRev', 1);
+            $def = $config->maybeGetRawHTMLDefinition();
+            if ($def !== null) {
+                $def->addElement('details', 'Block', 'Flow', 'Common', ['open' => 'Bool#open']);
+                $def->addElement('summary', 'Block', 'Inline', 'Common');
+                $def->addElement('video', 'Inline', 'Optional: source', 'Common', [
+                    'src' => 'URI',
+                    'width' => 'Length',
+                    'height' => 'Length',
+                    'poster' => 'URI',
+                    'controls' => 'Bool#controls',
+                ]);
+                $def->addElement('audio', 'Inline', 'Optional: source', 'Common', [
+                    'src' => 'URI',
+                    'controls' => 'Bool#controls',
+                ]);
+                $def->addElement('source', 'Block', 'Empty', 'Common', [
+                    'src' => 'URI',
+                    'type' => 'Text',
+                ]);
+                $def->addAttribute('iframe', 'allowfullscreen', 'Bool#allowfullscreen');
+            }
+
             // hold and return it
             self::$purifier = new \HTMLPurifier($config);
             return self::$purifier;
@@ -219,7 +274,7 @@ if (! class_exists('\KPM\Core\Html')) {
             $html = (string) preg_replace('/<img\b[^>]*>/i', ' ', $html);
 
             // keep word boundaries at block and line breaks
-            $breaks = '/<(br|\/p|\/div|\/li|\/h[1-6]|\/tr|\/td|\/th|\/pre|\/blockquote)\b[^>]*>/i';
+            $breaks = '/<(br|\/p|\/div|\/li|\/h[1-6]|\/tr|\/td|\/th|\/pre|\/blockquote|\/summary)\b[^>]*>/i';
             $html = (string) preg_replace($breaks, "$0\n", $html);
 
             // strip, decode, and collapse
