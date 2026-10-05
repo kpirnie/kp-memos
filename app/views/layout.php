@@ -39,7 +39,7 @@ $path = (string) parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PA
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="referrer" content="same-origin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="theme-color" content="#070e20">
     <meta name="kpm-csrf" content="<?php echo e(Csrf::token()) ?>">
     <title><?php echo e($pageTitle) ?></title>

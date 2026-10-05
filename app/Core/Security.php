@@ -72,7 +72,7 @@ if (! class_exists('\KPM\Core\Security')) {
             $nonce = self::nonce();
 
             // build the content security policy
-            // note bodies are purified html; external https images are the only remote content allowed
+            // note bodies are purified html; external https images and media, plus youtube / vimeo embeds, are the only remote content allowed
             $csp = implode('; ', [
                 "default-src 'self'",
                 "script-src 'self' 'nonce-{$nonce}' 'strict-dynamic'",
@@ -80,10 +80,10 @@ if (! class_exists('\KPM\Core\Security')) {
                 "img-src 'self' data: blob: https:",
                 "font-src 'self'",
                 "connect-src 'self'",
-                "media-src 'self' blob:",
+                "media-src 'self' blob: https:",
                 "worker-src 'self'",
                 "manifest-src 'self'",
-                "frame-src 'none'",
+                "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com",
                 "frame-ancestors 'none'",
                 "object-src 'none'",
                 "base-uri 'none'",
@@ -96,7 +96,7 @@ if (! class_exists('\KPM\Core\Security')) {
             header('Strict-Transport-Security: max-age=63072000; includeSubDomains');
             header('X-Content-Type-Options: nosniff');
             header('X-Frame-Options: DENY');
-            header('Referrer-Policy: same-origin');
+            header('Referrer-Policy: strict-origin-when-cross-origin');
             header('Cross-Origin-Opener-Policy: same-origin');
             header('Cross-Origin-Resource-Policy: same-origin');
             header('Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), '
