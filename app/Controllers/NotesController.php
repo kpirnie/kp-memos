@@ -338,8 +338,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                 'attachments' => $note !== null ? Db::rows('attachments_list', [$uid, (int) $note->id]) : [],
                 'maxUpload' => Storage::maxUploadBytes(),
                 'maxFiles' => Storage::maxFileCount(),
-                'styles' => ['assets/vendor/jodit/jodit.min.css'],
-                'scripts' => ['assets/vendor/jodit/jodit.min.js', 'assets/js/editor.js'],
+                'scripts' => ['vendor/hugerte/hugerte/hugerte.min.js', 'assets/js/editor.js'],
             ]);
         }
 

@@ -336,33 +336,18 @@ h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
 .kpm-file-error { outline: 1px solid rgba(255, 69, 96, .45); }
 .kpm-file-error .kpm-file-size { color: var(--kpm-danger); }
 
-/* jodit, recolored to the theme; body-scoped so it outranks jodit's own dark theme */
-body .jodit_theme_dark {
-    --jd-dark-background-color: var(--kpm-bg-card);
-    --jd-dark-background-darknes: var(--kpm-bg);
-    --jd-dark-toolbar-color: var(--kpm-bg-card-alt);
-    --jd-dark-text-color: var(--kpm-text);
-    --jd-dark-text-color-opacity80: rgba(221, 232, 245, .6);
-    --jd-dark-icon-color: var(--kpm-text-dim);
-    --jd-dark-toolbar-seperator-color1: var(--kpm-bg-input);
-    --jd-dark-toolbar-seperator-color2: var(--kpm-border-bright);
-    --jd-dark-toolbar-seperator-color3: var(--kpm-border);
-    --jd-color-border: var(--kpm-border-bright);
-    --jd-color-text: var(--kpm-text);
-    --jd-color-text-icons: var(--kpm-text-dim);
-    --jd-color-background-button-hover: rgba(43, 142, 255, .15);
-    --jd-color-background-button-hover-opacity30: rgba(43, 142, 255, .1);
-    --jd-color-background-active: rgba(43, 142, 255, .25);
-    --jd-color-background-selection: rgba(43, 142, 255, .3);
-    --jd-border-radius-default: 8px;
-    --jd-font-default: var(--kpm-font-body);
-}
-.kpm-editor .jodit-container:not(.jodit_inline) { border-radius: var(--kpm-radius-lg); overflow: hidden; border-color: var(--kpm-border-bright); }
-.kpm-editor .jodit-toolbar__box:not(:empty) { background: var(--kpm-bg-card-alt); border-bottom-color: var(--kpm-border); }
-.kpm-editor .jodit-workplace, .kpm-editor .jodit-wysiwyg { background: var(--kpm-bg-card); color: var(--kpm-text); }
-.kpm-editor .jodit-wysiwyg { padding: 20px 24px !important; font-family: var(--kpm-font-body); line-height: 1.75; }
-.kpm-editor .jodit-source__mirror { background: #020a1a; color: var(--kpm-text); font-family: var(--kpm-font-mono); font-size: .85rem; }
-.kpm-editor .jodit-status-bar { background: var(--kpm-bg-card-alt); color: var(--kpm-text-dim); border-top-color: var(--kpm-border); }
+/* hugerte, oxide-dark recolored to the theme; editor-scoped so it outranks the skin */
+.kpm-editor .tox-tinymce { border-color: var(--kpm-border-bright); border-radius: var(--kpm-radius-lg); }
+.kpm-editor .tox .tox-editor-header,
+.kpm-editor .tox .tox-menubar,
+.kpm-editor .tox .tox-toolbar,
+.kpm-editor .tox .tox-toolbar__primary,
+.kpm-editor .tox .tox-toolbar__overflow { background-color: var(--kpm-bg-card-alt); }
+.kpm-editor .tox .tox-edit-area__iframe { background-color: var(--kpm-bg-card); }
+.kpm-editor .tox .tox-statusbar { background-color: var(--kpm-bg-card-alt); border-top-color: var(--kpm-border); color: var(--kpm-text-dim); }
+.kpm-editor .tox .tox-statusbar a,
+.kpm-editor .tox .tox-statusbar__wordcount,
+.kpm-editor .tox .tox-statusbar__path-item { color: var(--kpm-text-dim); }
 
 /* ---------------------------------------------------------------------------
  * note view & shared content
