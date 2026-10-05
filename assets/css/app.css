@@ -372,6 +372,15 @@ h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
 .kpm-content code { background: var(--kpm-bg-card-alt); border: 1px solid var(--kpm-border-bright); border-radius: 4px; padding: 2px 6px; font-family: var(--kpm-font-mono); font-size: .85em; color: var(--kpm-cyan); }
 .kpm-content pre { background: #020a1a; border: 1px solid var(--kpm-border-bright); border-radius: var(--kpm-radius); padding: 18px; overflow-x: auto; font-family: var(--kpm-font-mono); font-size: .86rem; white-space: pre; }
 .kpm-content pre code { background: none; border: 0; padding: 0; color: var(--kpm-text); }
+.kpm-content .token.comment, .kpm-content .token.prolog, .kpm-content .token.doctype, .kpm-content .token.cdata { color: var(--kpm-text-dim); font-style: italic; }
+.kpm-content .token.punctuation, .kpm-content .token.operator { color: var(--kpm-text-dim); }
+.kpm-content .token.keyword, .kpm-content .token.atrule, .kpm-content .token.important, .kpm-content .token.tag { color: var(--kpm-cyan); }
+.kpm-content .token.function, .kpm-content .token.class-name, .kpm-content .token.selector, .kpm-content .token.attr-name { color: var(--kpm-blue); }
+.kpm-content .token.string, .kpm-content .token.char, .kpm-content .token.attr-value, .kpm-content .token.regex, .kpm-content .token.inserted { color: var(--kpm-success); }
+.kpm-content .token.number, .kpm-content .token.boolean, .kpm-content .token.constant, .kpm-content .token.symbol, .kpm-content .token.variable, .kpm-content .token.property { color: var(--kpm-warning); }
+.kpm-content .token.deleted { color: var(--kpm-danger); }
+.kpm-content .token.bold, .kpm-content .token.important { font-weight: 700; }
+.kpm-content .token.italic { font-style: italic; }
 .kpm-card.kpm-content { overflow: clip; }
 .kpm-pre-wrap { position: relative; }
 .kpm-pre-tools { position: sticky; top: 115px; z-index: 1; height: 42px; margin-bottom: -42px; display: flex; justify-content: flex-end; align-items: flex-start; padding: 8px 8px 0 0; pointer-events: none; }

@@ -198,7 +198,7 @@ if (! class_exists('\KPM\Controllers\NotesController')) {
                     Taxonomy::ids($note->tag_ids)
                 ))),
                 'attachments' => Db::rows('attachments_list', [$uid, (int) $note->id]),
-                'scripts' => ['assets/js/note.js'],
+                'scripts' => [...Html::HIGHLIGHT_SCRIPTS, 'assets/js/note.js'],
             ]);
         }
 

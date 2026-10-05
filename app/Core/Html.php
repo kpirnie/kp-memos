@@ -36,6 +36,24 @@ if (! class_exists('\KPM\Core\Html')) {
         /** @var int the largest purified body we store, in bytes */
         public const MAX_BYTES = 8388608;
 
+        /** @var list<string> prism and the code sample languages, in dependency order */
+        public const HIGHLIGHT_SCRIPTS = [
+            'vendor/prismjs/prism/components/prism-core.min.js',
+            'vendor/prismjs/prism/components/prism-markup.min.js',
+            'vendor/prismjs/prism/components/prism-clike.min.js',
+            'vendor/prismjs/prism/components/prism-css.min.js',
+            'vendor/prismjs/prism/components/prism-javascript.min.js',
+            'vendor/prismjs/prism/components/prism-markup-templating.min.js',
+            'vendor/prismjs/prism/components/prism-php.min.js',
+            'vendor/prismjs/prism/components/prism-ruby.min.js',
+            'vendor/prismjs/prism/components/prism-python.min.js',
+            'vendor/prismjs/prism/components/prism-java.min.js',
+            'vendor/prismjs/prism/components/prism-c.min.js',
+            'vendor/prismjs/prism/components/prism-cpp.min.js',
+            'vendor/prismjs/prism/components/prism-csharp.min.js',
+            'assets/js/highlight.js',
+        ];
+
         /** @var \HTMLPurifier|null the configured purifier */
         private static ?\HTMLPurifier $purifier = null;
 

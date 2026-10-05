@@ -29,6 +29,7 @@ use KPM\Core\Throttle;
 use KPM\Core\View;
 use KPT\Crypto;
 use KPT\Session;
+use KPM\Core\Html;
 
 // if the class does not exist already
 if (! class_exists('\KPM\Controllers\ShareController')) {
@@ -148,6 +149,7 @@ if (! class_exists('\KPM\Controllers\ShareController')) {
                 'attachments' => Db::rows('share_attachments', [$token]),
                 'bare' => true,
                 'public' => true,
+                'scripts' => Html::HIGHLIGHT_SCRIPTS,
             ]);
         }
 
